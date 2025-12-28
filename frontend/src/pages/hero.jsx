@@ -11,7 +11,7 @@ const Hero = () => {
       {/* Text Section */}
       <div className="z-10 max-w-xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-4">
-          Schedule and join secure interviews, 24/7
+          Schedule and join secure interviews
         </h1>
         <p className="text-gray-600 mb-8">
           Built-in anti-cheat features for honest hiring
