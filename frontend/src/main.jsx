@@ -10,6 +10,7 @@ import ResetPassword from './ResetPassword';
 import UserProfile from './UserProfile';
 import ProtectedRoute from "./ProtectedRoute";
 import AuthRedirect from "./AuthRedirect";
+
 import { AuthProvider } from './AuthContext'; 
 import './index.css';
 
