@@ -79,19 +79,20 @@ export default function FAQ() {
               </motion.span>
             </button>
 
-            <AnimatePresence>
-              {activeIndex === index && (
-                <motion.div
-                  className="faq-answer-wrapper"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
-                >
-                  <p className="faq-answer">{item.answer}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+         <AnimatePresence>
+  {activeIndex === index && (
+    <motion.div
+      className="faq-answer-wrapper"
+      initial={{ height: 0, opacity: 0, color: "#80e41c" }}
+      animate={{ height: "auto", opacity: 1, color: "#ffffff" }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+    >
+      <p className="faq-answer">{item.answer}</p>
+    </motion.div>
+  )}
+</AnimatePresence>
+
           </div>
         ))}
       </div>
