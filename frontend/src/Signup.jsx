@@ -1,10 +1,9 @@
-import Navbar2 from "./components/Navbar2";
 import Signup from "./pages/Signup";
-
+import Navbar from "./pages/Navbar.jsx";
 function signup(){
   return(
     <>
-    <Navbar2/>
+    <Navbar/>
     <Signup/>
     </>
   )

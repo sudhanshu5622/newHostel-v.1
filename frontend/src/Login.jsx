@@ -1,10 +1,10 @@
-import Navbar2 from "./components/Navbar2";
 import Login from "./pages/Login";
+import Navbar from "./pages/Navbar.jsx";
 
 function login(){
   return(
     <>
-    <Navbar2/>
+    <Navbar/>
     <Login/>
     </>
   )

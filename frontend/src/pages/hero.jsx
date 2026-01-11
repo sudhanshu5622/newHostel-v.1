@@ -4,7 +4,7 @@ import { useAuth } from '../AuthContext';
 const Hero = () => {
   const { isAuthenticated, isLoading } = useAuth();
   // If we are still checking auth status, don't render anything yet
-  if (isLoading) return null; 
+  if (isLoading) return null;
 
   return (
     <div className="relative bg-gradient-to-br from-blue-100 to-purple-200 min-h-[calc(100vh-61.5px)] flex items-center px-8 py-16 overflow-hidden">

@@ -19,7 +19,6 @@ function App(){
     // </div>
     <>
       <Navbar/>
-      <Hero/>
       <SecondMain />
       <Hostel_card />
       <FloatingContact/>
