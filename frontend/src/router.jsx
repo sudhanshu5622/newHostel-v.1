@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
   { path: "/resetpass", element: <ResetPassword /> },
   { path: "/joinmeet", element: <JoinMeet /> },
 
-  // Owner pages
+  //Owner pages
   { path: "/owner-services", element: <OwnerAuth /> },
   { path: "/owner-services/dashboard", element: <OwnerDashboard /> },
 

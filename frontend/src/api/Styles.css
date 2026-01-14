@@ -1,0 +1,41 @@
+body {
+  font-family: Inter, system-ui, Arial;
+  background: #f6f9fc;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+.card {
+  width: 360px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(28,40,80,0.08);
+}
+input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e6eef7;
+  box-sizing: border-box;
+}
+button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.7; cursor: not-allowed; }
+.error { color: #b00020; margin-top: 8px; }
+.otpBox {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  border: 1px solid #e6eef7;
+}
