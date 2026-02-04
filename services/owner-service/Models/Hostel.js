@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const HostelSchema = new mongoose.Schema(
     {
@@ -16,4 +16,8 @@ const HostelSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
-module.exports = mongoose.model("Hostel", HostelSchema);
+// module.exports =
+//   mongoose.models.Hostel || mongoose.model("Hostel", HostelSchema);
+const Hostel = mongoose.model("Hostel", HostelSchema);
+
+export default Hostel;

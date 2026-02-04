@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
-const Owner = require("../Models/Owner");
+const Owner = require("../models/Owner");
 
 const authMiddleware = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    if (!authHeader || !authHeader.startsWith("Bearer")) {
       return res.status(401).json({ error: "Authorization token missing" });
     }
     const token = authHeader.split(" ")[1];

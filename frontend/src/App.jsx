@@ -62,12 +62,85 @@
 // }
 
 // export default App;
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+// import React from "react";
+// import { Routes, Route, Navigate } from "react-router-dom";
 
-/* ---------- PUBLIC UI PAGES ---------- */
+// /* ---------- PUBLIC UI PAGES ---------- */
+// import MainPages from "./pages/MainPages";
+// import Navbar from "./pages/Navbar";
+// import SecondMain from "./pages/SecondMain";
+// import Hostel_card from "./pages/Hostel_card";
+// import FloatingContact from "./pages/FloatingContact";
+// import NewItem from "./pages/NewItem";
+// import Contact from "./pages/contact";
+// import Lastone from "./pages/lastone";
+// import Footer from "./pages/Footer";
+
+// /* ---------- OWNER AUTH & DASHBOARD ---------- */
+// import OwnerSignup from "./pages/OwnerSignup";
+// import OwnerLogin from "./pages/OwnerLogin";
+// import OTPVerification from "./pages/OTPVerification";
+// import OwnerDashboard from "./pages/OwnerDashboard";
+
+// /* ---------- PRIVATE ROUTE ---------- */
+// function PrivateRoute({ children }) {
+//   const token = localStorage.getItem("token");
+//   return token ? children : <Navigate to="/owner-login" />;
+// }
+
+// /* ---------- HOME PAGE ---------- */
+// function HomePage() {
+//   return (
+//     <>
+//       <Navbar />
+//       <MainPages />
+//       <SecondMain />
+//       <Hostel_card />
+//       <FloatingContact />
+//       <NewItem />
+//       <Contact />
+//       <Lastone />
+//       <Footer />
+//     </>
+//   );
+// }
+
+// /* ---------- APP ROUTER ---------- */
+// export default function App() {
+//   return (
+//     <Routes>
+
+//       {/* Public Website */}
+//       <Route path="/" element={<HomePage />} />
+
+//       {/* Owner Auth */}
+//       <Route path="/owner-signup" element={<OwnerSignup />} />
+//       <Route path="/owner-login" element={<OwnerLogin />} />
+//       <Route path="/verify-otp" element={<OTPVerification />} />
+
+//       {/* Owner Dashboard Protected */}
+//       <Route
+//         path="/dashboard"
+//         element={
+//           <PrivateRoute>
+//             <OwnerDashboard />
+//           </PrivateRoute>
+//         }
+//       />
+
+//       {/* Fallback */}
+//       <Route path="*" element={<Navigate to="/" />} />
+
+//     </Routes>
+//   );
+// }
+
+
+import React from "react";
+
+/* ---------- PUBLIC UI ---------- */
+import MainPages from "./pages/MainPages";
 import Navbar from "./pages/Navbar";
-import Hero from "./pages/hero";
 import SecondMain from "./pages/SecondMain";
 import Hostel_card from "./pages/Hostel_card";
 import FloatingContact from "./pages/FloatingContact";
@@ -76,24 +149,11 @@ import Contact from "./pages/contact";
 import Lastone from "./pages/lastone";
 import Footer from "./pages/Footer";
 
-/* ---------- OWNER AUTH & DASHBOARD ---------- */
-import OwnerSignup from "./pages/OwnerSignup";
-import OwnerLogin from "./pages/OwnerLogin";
-import OTPVerification from "./pages/OTPVerification";
-import OwnerDashboard from "./pages/OWnerDashboards";
-
-/* ---------- PRIVATE ROUTE ---------- */
-function PrivateRoute({ children }) {
-  const token = localStorage.getItem("token");
-  return token ? children : <Navigate to="/login" />;
-}
-
-/* ---------- HOME PAGE LAYOUT ---------- */
-function HomePage() {
+export default function App() {
   return (
     <>
       <Navbar />
-      {/* <Hero /> */}
+      <MainPages />
       <SecondMain />
       <Hostel_card />
       <FloatingContact />
@@ -104,74 +164,3 @@ function HomePage() {
     </>
   );
 }
-
-/* ---------- APP ---------- */
-export default function App() {
-  return (
-    <Routes>
-      {/* Public Website */}
-      <Route path="/" element={<HomePage />} />
-
-      {/* Owner Auth */}
-      <Route path="/owner-signup" element={<OwnerSignup />} />
-      <Route path="/owner-login" element={<OwnerLogin />} />
-      <Route path="/verify-otp" element={<OTPVerification />} />
-
-      {/* Owner Dashboard (Protected) */}
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <OwnerDashboard />
-          </PrivateRoute>
-        }
-      />
-
-      {/* Fallback */}
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
-  );
-}
-
-
-
-/* ===== APP ROUTER ===== */
-
-
-
-
-// import { Routes, Route, Navigate } from 'react-router-dom';
-// import AdminLogin from './pages/AdminLogin';
-// import Dashboard from './pages/Dashboard';
-// import Users from './pages/Users';
-// import UserAProfile from './pages/UserProfile';
-// import NotFound from './pages/NotFound';
-// import ProtectedRoute from './components/ProtectedRoute';
-
-
-// export default function App() {
-// return (
-// <Routes>
-// <Route path="/admin/login" element={<AdminLogin />} />
-
-
-// <Route
-// path="/admin/*"
-// element={
-// <ProtectedRoute>
-// <Routes>
-// <Route path="" element={<Dashboard />} />
-// <Route path="users" element={<Users />} />
-// <Route path="users/:id" element={<UserAProfile />} />
-// <Route path="*" element={<NotFound />} />
-// </Routes>
-// </ProtectedRoute>
-// }
-// />
-
-
-// <Route path="/" element={<Navigate to="/admin" replace />} />
-// <Route path="*" element={<NotFound />} />
-// </Routes>
-// );
-// }

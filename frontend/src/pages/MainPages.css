@@ -1,0 +1,114 @@
+/* Root Theme Colors */
+:root {
+  --primary: #80e41c;
+  --primary-dark: #65b515;
+  --primary-light: #f4ffe8;
+  --border-soft: #d8f5b5;
+  --text-dark: #1f2937;
+}
+
+/* Main Container */
+.container {
+  text-align: center;
+  padding: 50px 20px;
+  background: var(--primary-light);
+  min-height: 100vh;
+}
+
+/* Title */
+.title {
+  margin-bottom: 40px;
+  font-size: 34px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+/* Card Wrapper */
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Card Design */
+.card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+/* Card Heading */
+.card h2 {
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+/* Card Text */
+.card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 22px;
+}
+
+/* Button */
+.card button {
+  padding: 12px 22px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.card button:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* 📱 Responsive Design */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 600px) {
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 400px) {
+  .container {
+    padding: 30px 15px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
