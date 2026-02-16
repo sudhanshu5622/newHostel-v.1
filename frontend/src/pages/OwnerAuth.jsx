@@ -216,7 +216,6 @@
 //   );
 // }
 
-
 // import { useState, useEffect } from "react";
 // import { motion } from "framer-motion";
 // import axios from "axios";
@@ -596,7 +595,6 @@ import "./OwnerAuth.css";
 const API_BASE_URL = "http://localhost:4000/api/owner";
 
 export default function OwnerAuth() {
-
   const navigate = useNavigate();
   const [mode, setMode] = useState("login");
 
@@ -605,7 +603,7 @@ export default function OwnerAuth() {
     email: "",
     phone: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -614,8 +612,9 @@ export default function OwnerAuth() {
 
   // ================= CHECK AUTH =================
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/is-auth`)
-      .then(res => {
+    axios
+      .get(`${API_BASE_URL}/is-auth`)
+      .then((res) => {
         if (res.data.success) {
           navigate("/owner-services");
         }
@@ -625,9 +624,9 @@ export default function OwnerAuth() {
 
   // ================= HANDLE INPUT =================
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -644,15 +643,12 @@ export default function OwnerAuth() {
     try {
       setLoading(true);
 
-      const res = await axios.post(
-        `${API_BASE_URL}/register`,
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          password: formData.password
-        }
-      );
+      const res = await axios.post(`${API_BASE_URL}/register`, {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        password: formData.password,
+      });
 
       if (res.data.success) {
         setMessage("Registration successful. Please login.");
@@ -660,7 +656,6 @@ export default function OwnerAuth() {
       } else {
         setError(res.data.message);
       }
-
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
     }
@@ -677,27 +672,27 @@ export default function OwnerAuth() {
     try {
       setLoading(true);
 
-      const res = await axios.post(
-        `${API_BASE_URL}/login`,
-        {
-          email: formData.email,
-          password: formData.password
-        }
-      );
+      const res = await axios.post(`${API_BASE_URL}/login`, {
+        email: formData.email,
+        password: formData.password,
+      });
 
-      if (res.data.success) {
+      if (res.data.success) { 
         localStorage.setItem("ownerToken", res.data.token);
         localStorage.setItem("owner", JSON.stringify(res.data.owner));
 
         setMessage("Login successful");
 
+        // setTimeout(() => {
+        //   navigate("/owner-services/dashboard");
+        // }, 800);
         setTimeout(() => {
-          navigate("/owner-services");
+          console.log("Redirecting...");
+          navigate("/owner-services/dashboard");
         }, 800);
       } else {
         setError(res.data.message);
       }
-
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
     }
@@ -713,7 +708,6 @@ export default function OwnerAuth() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
       >
-
         {/* LEFT SIDE */}
         <div className="auth-left">
           <h2>Hostel Owner Portal</h2>
@@ -722,19 +716,17 @@ export default function OwnerAuth() {
 
         {/* RIGHT SIDE */}
         <div className="auth-right">
-
           <h3>{mode === "login" ? "Owner Login" : "Owner Registration"}</h3>
 
           <form onSubmit={mode === "login" ? handleLogin : handleRegister}>
-
-            {mode === "register" &&
+            {mode === "register" && (
               <input
                 name="name"
                 placeholder="Full Name"
                 onChange={handleChange}
                 required
               />
-            }
+            )}
 
             <input
               type="email"
@@ -744,14 +736,14 @@ export default function OwnerAuth() {
               required
             />
 
-            {mode === "register" &&
+            {mode === "register" && (
               <input
                 name="phone"
                 placeholder="Phone"
                 onChange={handleChange}
                 required
               />
-            }
+            )}
 
             <input
               type="password"
@@ -761,7 +753,7 @@ export default function OwnerAuth() {
               required
             />
 
-            {mode === "register" &&
+            {mode === "register" && (
               <input
                 type="password"
                 name="confirmPassword"
@@ -769,12 +761,15 @@ export default function OwnerAuth() {
                 onChange={handleChange}
                 required
               />
-            }
+            )}
 
             <button type="submit" disabled={loading}>
-              {loading ? "Please wait..." : mode === "login" ? "Login" : "Register"}
+              {loading
+                ? "Please wait..."
+                : mode === "login"
+                  ? "Login"
+                  : "Register"}
             </button>
-
           </form>
 
           {message && <p className="success">{message}</p>}
@@ -786,16 +781,12 @@ export default function OwnerAuth() {
               : "Already have an account?"}
 
             <span
-              onClick={() =>
-                setMode(mode === "login" ? "register" : "login")
-              }
+              onClick={() => setMode(mode === "login" ? "register" : "login")}
             >
               {mode === "login" ? " Sign Up" : " Login"}
             </span>
           </p>
-
         </div>
-
       </motion.div>
     </div>
   );

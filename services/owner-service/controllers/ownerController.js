@@ -296,33 +296,50 @@ export const registerOwner = async (req, res) => {
 };
 
 /* ================= LOGIN OWNER ================= */
-console.log(req.body);
 
 export const loginOwner = async (req, res) => {
   try {
+    console.log("Login Body:", req.body);
+
     const { email, password } = req.body;
 
+    // 1️⃣ Validate input
     if (!email || !password) {
-      return res.status(400).json({ message: "All fields required" });
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required"
+      });
     }
 
+    // 2️⃣ Check owner exists
     const owner = await Owner.findOne({ email });
+
     if (!owner) {
-      return res.status(400).json({ message: "Owner not found" });
+      return res.status(404).json({
+        success: false,
+        message: "Owner not found"
+      });
     }
 
+    // 3️⃣ Compare password
     const isMatch = await bcrypt.compare(password, owner.password);
+
     if (!isMatch) {
-      return res.status(400).json({ message: "Invalid password" });
+      return res.status(401).json({
+        success: false,
+        message: "Invalid credentials"
+      });
     }
 
+    // 4️⃣ Create token
     const token = jwt.sign(
       { id: owner._id },
-      process.env.JWT_SECRET || "secret123",
+      process.env.JWT_SECRET,
       { expiresIn: "7d" }
     );
 
-    res.json({
+    // 5️⃣ Send response
+    return res.status(200).json({
       success: true,
       message: "Login successful",
       token,
@@ -333,9 +350,12 @@ export const loginOwner = async (req, res) => {
       }
     });
 
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Server error" });
+  } catch (error) {
+    console.error("Login Error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Server error"
+    });
   }
 };
 
