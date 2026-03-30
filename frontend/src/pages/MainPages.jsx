@@ -16,7 +16,7 @@ function RoleCards() {
 
 
   const handleAdminEnter = () => {
-    navigate("/admin");
+    navigate("/admin-pannel");
   };
 
   return (

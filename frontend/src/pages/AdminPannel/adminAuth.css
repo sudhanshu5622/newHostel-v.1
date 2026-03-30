@@ -1,0 +1,150 @@
+/* ===== Page Background ===== */
+.admin-auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ededfd, #565558);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ===== Main Container ===== */
+.auth-container.admin-theme {
+  display: flex;
+  width: 850px;
+  min-height: 520px;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== Left Branding Section ===== */
+.auth-left.admin-bg {
+  flex: 1;
+  background: linear-gradient(135deg, #80e41c, #6366f1);
+  color: #000000;
+  padding: 50px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-left.admin-bg h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.auth-left.admin-bg p {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+/* ===== Right Form Section ===== */
+.auth-right {
+  flex: 1;
+  padding: 45px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-right h3 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* ===== Inputs ===== */
+.auth-right input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.auth-right input:focus {
+  border-color: #dd0606;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Admin Button ===== */
+.admin-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #80e41c, #16a34a);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.4);
+}
+
+.admin-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ===== Success & Error Messages ===== */
+.success {
+  color: #80e41c;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.error {
+  color: #dc2626;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ===== Switch Mode ===== */
+.switch {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.switch span {
+  color: #80e41c;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 5px;
+  transition: 0.2s;
+}
+
+.switch span:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .auth-container.admin-theme {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .auth-left.admin-bg {
+    text-align: center;
+    padding: 30px;
+  }
+
+  .auth-right {
+    padding: 30px;
+  }
+}

@@ -194,6 +194,7 @@ import { AuthProvider } from "./AuthContext";
 /* Owner / Payment pages */
 import OwnerAuth from "./pages/OwnerAuth";
 import OwnerDashboard from "./pages/OwnerDashboard";
+import AdminAuth from "./pages/AdminPannel/adminAuth";
 import Payment from "./pages/Payment";
 import PaymentSuccess from "./pages/PaymentSuccess";
 
@@ -231,6 +232,9 @@ export const router = createBrowserRouter([
   //Owner pages
   { path: "/owner-services", element: <OwnerAuth /> },
   { path: "/owner-services/dashboard", element: <OwnerDashboard /> },
+  
+  // Admin pannel
+  { path: "/admin-pannel", element: <AdminAuth/>},
 
   // Payment flow
   { path: "/payment", element: <Payment /> },
